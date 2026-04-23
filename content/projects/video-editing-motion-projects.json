@@ -1,0 +1,17 @@
+{
+  "title": "Video Editing & Motion Projects",
+  "category": "others",
+  "banner_image": "https://images.unsplash.com/photo-1653043586925-cfb4676c69a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800",
+  "detail_image": "https://images.unsplash.com/photo-1653043586925-cfb4676c69a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800",
+  "description": "A collection of video editing and motion graphics projects created using Adobe Premiere Pro and After Effects. Work includes YouTube video edits, promotional content, and social media reels with professional-grade color grading and sound design.",
+  "highlights": [
+    "Edited 25+ YouTube videos with pro color grading",
+    "Created motion graphics and animated intros/outros",
+    "Produced social media short-form content (Reels/Shorts)",
+    "Applied advanced audio mixing and sound design"
+  ],
+  "tech_stack": ["Adobe Premiere Pro", "Adobe After Effects", "DaVinci Resolve"],
+  "live_link": "",
+  "github_link": "",
+  "code_snippet": ""
+}

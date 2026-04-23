@@ -1,0 +1,17 @@
+{
+  "title": "Space Portfolio Website",
+  "category": "coding",
+  "banner_image": "https://images.unsplash.com/photo-1738255654134-1877cb984a8f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800",
+  "detail_image": "https://images.unsplash.com/photo-1738255654134-1877cb984a8f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800",
+  "description": "A fully responsive personal portfolio website with a stunning space theme featuring canvas-based particle animations, black hole cursor effects, and scroll-driven rocket animations. Managed via Decap CMS — no database needed.",
+  "highlights": [
+    "Built with vanilla JS, CSS animations, and HTML5 Canvas",
+    "Black hole cursor particle effect with gravitational pull",
+    "Scroll-driven rocket animation with achievement cards",
+    "CMS-managed content via Decap CMS + GitHub + Netlify"
+  ],
+  "tech_stack": ["HTML", "CSS", "JavaScript", "HTML Canvas", "Decap CMS", "Netlify"],
+  "live_link": "",
+  "github_link": "https://github.com/Autumnfalls77777",
+  "code_snippet": "// Black hole cursor effect\nconst pullStar = (star, mouse) => {\n  const dx = mouse.x - star.x;\n  const dy = mouse.y - star.y;\n  const dist = Math.sqrt(dx*dx + dy*dy);\n  const force = Math.pow((BH_RADIUS - dist) / BH_RADIUS, 2) * 3;\n  star.vx += (dx/dist) * force * 0.5;\n  star.vy += (dy/dist) * force * 0.5;\n};"
+}

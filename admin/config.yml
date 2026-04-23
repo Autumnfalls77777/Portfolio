@@ -1,0 +1,127 @@
+backend:
+  name: github
+  repo: YOUR_GITHUB_USERNAME/YOUR_REPO_NAME   # ← Replace with your repo e.g. Autumnfalls77777/Portfolio
+  branch: main
+  base_url: https://YOUR_NETLIFY_SITE.netlify.app  # ← Replace with your Netlify URL
+
+# Where uploaded images are stored in your repo
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+# Your live site URL
+site_url: https://YOUR_NETLIFY_SITE.netlify.app  # ← Replace
+
+collections:
+
+  # ────────────────────────────────────────────────────────
+  # SITE SETTINGS (single file)
+  # ────────────────────────────────────────────────────────
+  - name: "settings"
+    label: "⚙️ Site Settings"
+    files:
+      - name: "general"
+        label: "General Settings"
+        file: "_data/settings.json"
+        fields:
+          - { label: "Full Name",  name: name,    widget: string, default: "Prabal Jaiswal" }
+          - { label: "Tagline",    name: tagline,  widget: string, default: "Graphic Designer · Server Admin · Game Dev" }
+          - label: "Bio"
+            name: bio
+            widget: text
+            default: "Passionate creator building at the intersection of design, code, and gaming."
+          - label: "Profile / Hero Image"
+            name: hero_image
+            widget: image
+            required: false
+            hint: "Upload your profile photo. Recommended: square, at least 400×400px."
+          - label: "SEO Title"
+            name: seo_title
+            widget: string
+            default: "Prabal Jaiswal | Space Portfolio"
+          - label: "Social Links"
+            name: social_links
+            widget: object
+            fields:
+              - { label: "GitHub URL",    name: github,   widget: string, required: false }
+              - { label: "LinkedIn URL",  name: linkedin, widget: string, required: false }
+              - { label: "Twitter URL",   name: twitter,  widget: string, required: false }
+              - { label: "Discord URL",   name: discord,  widget: string, required: false }
+              - { label: "Website URL",   name: website,  widget: string, required: false, default: "https://altitudesmp.live" }
+
+  # ────────────────────────────────────────────────────────
+  # PROJECTS
+  # ────────────────────────────────────────────────────────
+  - name: "projects"
+    label: "🚀 Projects"
+    folder: "content/projects"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    extension: "json"
+    format: "json"
+    fields:
+      - { label: "Project Title",   name: title,       widget: string }
+      - label: "Category"
+        name: category
+        widget: select
+        options:
+          - { label: "🎨 Graphic Design",     value: "graphic" }
+          - { label: "💻 Coding & Dev",        value: "coding" }
+          - { label: "🖥️ Server & Networking", value: "server" }
+          - { label: "✨ Others",              value: "others" }
+      - label: "Banner Image (shown on card)"
+        name: banner_image
+        widget: image
+        required: true
+        hint: "Main thumbnail image shown on the project card. Recommended: 800×500px."
+      - label: "Detail Image (shown in modal, optional)"
+        name: detail_image
+        widget: image
+        required: false
+        hint: "Larger image shown when a user clicks to view the project. Defaults to banner if empty."
+      - { label: "Description",    name: description,  widget: text }
+      - label: "Key Highlights"
+        name: highlights
+        widget: list
+        hint: "Add up to 4 bullet points describing what you did."
+        field: { label: "Highlight", name: highlight, widget: string }
+      - label: "Tech Stack"
+        name: tech_stack
+        widget: list
+        hint: "List technologies used, e.g. React, Python, Canva"
+        field: { label: "Technology", name: tech, widget: string }
+      - { label: "Live URL",       name: live_link,    widget: string, required: false, hint: "https://..." }
+      - { label: "GitHub URL",     name: github_link,  widget: string, required: false }
+      - label: "Code Snippet (optional)"
+        name: code_snippet
+        widget: text
+        required: false
+        hint: "Paste a relevant code snippet to display in the project modal."
+
+  # ────────────────────────────────────────────────────────
+  # CERTIFICATES
+  # ────────────────────────────────────────────────────────
+  - name: "certificates"
+    label: "🎓 Certificates"
+    folder: "content/certificates"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    extension: "json"
+    format: "json"
+    fields:
+      - { label: "Certificate Title", name: title,    widget: string }
+      - { label: "Issuing Organization", name: issuer, widget: string, required: false, hint: "e.g. Coursera, NPTEL, Google" }
+      - { label: "Issue Date",        name: date,     widget: date,   required: false, format: "YYYY-MM-DD" }
+      - label: "Category"
+        name: category
+        widget: select
+        options:
+          - { label: "🎓 College",              value: "college" }
+          - { label: "🏆 Events",               value: "events" }
+          - { label: "💼 Internship/Freelance", value: "internship" }
+      - label: "Certificate Image"
+        name: image
+        widget: image
+        required: true
+        hint: "Upload a photo/screenshot of the certificate. JPG or PNG."
