@@ -1,0 +1,11 @@
+{
+  "title": "Welcome to my new Portfolio",
+  "category": "coding",
+  "banner_image": "/assets/projects/placeholder.jpg",
+  "description": "This is a sample project managed by Decap CMS.",
+  "highlights": [],
+  "tech_stack": ["HTML", "CSS", "JS"],
+  "live_link": "",
+  "github_link": "",
+  "code_snippet": ""
+}

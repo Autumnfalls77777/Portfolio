@@ -1,0 +1,13 @@
+{
+  "name": "prabal-jaiswal-portfolio",
+  "version": "2.0.0",
+  "description": "Space-themed portfolio — static Vanilla JS + Decap CMS + Cloudflare Pages",
+  "scripts": {
+    "build": "node generate-manifests.js",
+    "dev": "npx serve . -p 5500",
+    "manifests": "node generate-manifests.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

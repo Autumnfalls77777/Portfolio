@@ -1,0 +1,17 @@
+{
+  "title": "Brand Identity Design",
+  "category": "graphic",
+  "banner_image": "https://images.unsplash.com/photo-1774386513104-0ac796100f6c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800",
+  "detail_image": "https://images.unsplash.com/photo-1774386513104-0ac796100f6c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800",
+  "description": "Complete brand identity package including logo design, color palette, typography selection, and comprehensive brand guidelines for a modern tech startup. The project involved crafting a cohesive visual language that communicates innovation and reliability.",
+  "highlights": [
+    "Designed full brand identity from scratch using Canva Pro",
+    "Created logo variations for light/dark and icon-only formats",
+    "Developed 20-page comprehensive brand style guide",
+    "Produced social media templates and marketing collateral"
+  ],
+  "tech_stack": ["Canva Pro", "Adobe Illustrator", "Color Theory"],
+  "live_link": "",
+  "github_link": "",
+  "code_snippet": ""
+}

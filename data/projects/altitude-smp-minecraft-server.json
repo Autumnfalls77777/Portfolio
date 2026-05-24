@@ -1,0 +1,17 @@
+{
+  "title": "Altitude SMP – Minecraft Server",
+  "category": "server",
+  "banner_image": "https://images.unsplash.com/photo-1580670290771-1d00d819d78b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800",
+  "detail_image": "https://images.unsplash.com/photo-1762163516269-3c143e04175c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800",
+  "description": "Built, configured, and fully professionalized a Minecraft survival multiplayer server from the ground up. Handled everything from server architecture to community management, creating a polished and scalable gaming platform.",
+  "highlights": [
+    "Set up and optimized Paper/Spigot server for 100+ concurrent players",
+    "Configured 30+ plugins for gameplay, economy, and anti-cheat",
+    "Managed MySQL database for player stats and economy data",
+    "Created professional website at altitudesmp.live"
+  ],
+  "tech_stack": ["Java", "Paper/Spigot", "MySQL", "Linux", "NGINX"],
+  "live_link": "https://altitudesmp.live",
+  "github_link": "",
+  "code_snippet": ""
+}

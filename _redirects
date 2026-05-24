@@ -1,0 +1,3 @@
+# Cloudflare Pages redirects
+# Hash-based router doesn't need SPA redirects, but handle admin properly
+/admin  /admin/index.html  200

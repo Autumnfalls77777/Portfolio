@@ -1,0 +1,213 @@
+# ═══════════════════════════════════════════════════════════════
+# Decap CMS — Prabal Jaiswal Portfolio
+# Backend: GitHub OAuth (no Netlify, Cloudflare Pages compatible)
+# ═══════════════════════════════════════════════════════════════
+
+backend:
+  name: github
+  repo: Autumnfalls77777/portfolio        # ← update if repo name differs
+  branch: main
+  base_url: https://decapcms-auth.pages.dev  # OAuth proxy for Cloudflare Pages
+  # Alternative free proxies: https://netlify-cms-oauth-provider.netlify.app
+  # Or self-host: https://github.com/vencax/netlify-cms-github-oauth-provider
+
+site_url: https://prabaljaiswal.pages.dev  # ← update to your actual domain
+
+# ── Media: organized by collection ──────────────────────────────
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+# ── Slugify settings ────────────────────────────────────────────
+slug:
+  encoding: "ascii"
+  clean_accents: true
+  sanitize_replacement: "-"
+
+collections:
+
+  # ──────────────────────────────────────────────────────────────
+  # PROFILE & SETTINGS (single file)
+  # ──────────────────────────────────────────────────────────────
+  - name: "profile"
+    label: "⚙️ Profile & Settings"
+    files:
+      - name: "settings"
+        label: "Profile Settings"
+        file: "data/profile/settings.json"
+        media_folder: "/assets/profile"
+        public_folder: "/assets/profile"
+        fields:
+          - { label: "Full Name",    name: name,    widget: string,  default: "Prabal Jaiswal" }
+          - { label: "Tagline",      name: tagline,  widget: string,  default: "Graphic Designer · Server Admin · Game Dev" }
+          - { label: "Bio",          name: bio,      widget: text }
+          - label: "Profile / Hero Image"
+            name: hero_image
+            widget: image
+            required: false
+            hint: "Recommended: square, at least 400×400px. Used in hero section."
+          - { label: "SEO Title",    name: seo_title, widget: string, default: "Prabal Jaiswal | Space Portfolio" }
+          - label: "Social Links"
+            name: social_links
+            widget: object
+            fields:
+              - { label: "GitHub URL",   name: github,   widget: string, required: false }
+              - { label: "LinkedIn URL", name: linkedin,  widget: string, required: false }
+              - { label: "Twitter URL",  name: twitter,   widget: string, required: false }
+              - { label: "Discord URL",  name: discord,   widget: string, required: false }
+              - { label: "Website URL",  name: website,   widget: string, required: false }
+
+  # ──────────────────────────────────────────────────────────────
+  # PROJECTS
+  # ──────────────────────────────────────────────────────────────
+  - name: "projects"
+    label: "🚀 Projects"
+    folder: "data/projects"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    extension: "json"
+    format: "json"
+    media_folder: "/assets/projects"
+    public_folder: "/assets/projects"
+    summary: "{{title}} ({{category}})"
+    fields:
+      - { label: "Project Title",   name: title,       widget: string }
+      - label: "Category"
+        name: category
+        widget: select
+        options:
+          - { label: "🎨 Graphic Design",      value: "graphic" }
+          - { label: "💻 Coding & Dev",         value: "coding" }
+          - { label: "🖥️ Server & Networking",  value: "server" }
+          - { label: "✨ Others",               value: "others" }
+      - label: "Banner Image"
+        name: banner_image
+        widget: image
+        required: true
+        hint: "Shown on project card. Recommended: 800×450px (16:9)"
+      - label: "Detail Image"
+        name: detail_image
+        widget: image
+        required: false
+        hint: "Shown inside project modal. Defaults to banner if empty."
+      - { label: "Description",     name: description, widget: text }
+      - label: "Key Highlights"
+        name: highlights
+        widget: list
+        hint: "Bullet points shown on the card and modal (3–5 recommended)"
+        field: { label: "Highlight", name: highlight, widget: string }
+      - label: "Tech Stack"
+        name: tech_stack
+        widget: list
+        hint: "Comma-separated chips, e.g. React, Node.js, Firebase"
+        field: { label: "Technology", name: tech, widget: string }
+      - { label: "Live URL",        name: live_link,   widget: string, required: false }
+      - { label: "GitHub URL",      name: github_link, widget: string, required: false }
+      - label: "Code Snippet"
+        name: code_snippet
+        widget: text
+        required: false
+        hint: "Optional: paste a short representative code block"
+
+  # ──────────────────────────────────────────────────────────────
+  # CERTIFICATES
+  # ──────────────────────────────────────────────────────────────
+  - name: "certificates"
+    label: "🎓 Certificates"
+    folder: "data/certificates"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    extension: "json"
+    format: "json"
+    media_folder: "/assets/certificates"
+    public_folder: "/assets/certificates"
+    summary: "{{title}} — {{issuer}}"
+    fields:
+      - { label: "Certificate Title",        name: title,    widget: string }
+      - { label: "Issuing Organization",     name: issuer,   widget: string, required: false }
+      - { label: "Issue Date",               name: date,     widget: date,   required: false, format: "YYYY-MM-DD" }
+      - label: "Category"
+        name: category
+        widget: select
+        options:
+          - { label: "🎓 College",              value: "college" }
+          - { label: "🏆 Events",               value: "events" }
+          - { label: "💼 Internship/Freelance", value: "internship" }
+      - label: "Certificate Image"
+        name: image
+        widget: image
+        required: true
+        hint: "Upload a photo or screenshot of the certificate"
+
+  # ──────────────────────────────────────────────────────────────
+  # EXPERIENCE
+  # ──────────────────────────────────────────────────────────────
+  - name: "experience"
+    label: "💼 Experience"
+    folder: "data/experience"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    extension: "json"
+    format: "json"
+    summary: "{{title}} @ {{company}}"
+    fields:
+      - { label: "Role / Title",             name: title,       widget: string }
+      - { label: "Company / Organization",   name: company,     widget: string }
+      - { label: "Start Date",               name: start_date,  widget: date, format: "YYYY-MM-DD" }
+      - { label: "End Date",                 name: end_date,    widget: date, format: "YYYY-MM-DD", required: false, hint: "Leave empty if current role" }
+      - { label: "Description",              name: description, widget: text }
+      - label: "Key Achievements"
+        name: highlights
+        widget: list
+        required: false
+        field: { label: "Achievement", name: highlight, widget: string }
+
+  # ──────────────────────────────────────────────────────────────
+  # SKILLS
+  # ──────────────────────────────────────────────────────────────
+  - name: "skills"
+    label: "🛠️ Skills"
+    folder: "data/skills"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    extension: "json"
+    format: "json"
+    summary: "{{name}} ({{category}})"
+    fields:
+      - { label: "Skill Name",    name: name,        widget: string }
+      - { label: "Category",     name: category,    widget: string, hint: "e.g. Languages, Design Tools, Frameworks" }
+      - label: "Proficiency %"
+        name: proficiency
+        widget: number
+        value_type: int
+        min: 1
+        max: 100
+        required: false
+        hint: "1–100 scale"
+
+  # ──────────────────────────────────────────────────────────────
+  # BLOGS (future)
+  # ──────────────────────────────────────────────────────────────
+  - name: "blogs"
+    label: "📝 Blog Posts"
+    folder: "data/blogs"
+    create: true
+    delete: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    extension: "json"
+    format: "json"
+    media_folder: "/assets/blogs"
+    public_folder: "/assets/blogs"
+    summary: "{{title}} ({{date}})"
+    fields:
+      - { label: "Title",        name: title,   widget: string }
+      - { label: "Date",         name: date,    widget: date, format: "YYYY-MM-DD" }
+      - label: "Cover Image"
+        name: image
+        widget: image
+        required: false
+      - { label: "Excerpt",      name: excerpt, widget: text }
+      - { label: "Content",      name: body,    widget: markdown }
